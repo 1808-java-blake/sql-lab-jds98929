@@ -281,7 +281,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER add_employee_trigger
-BEFORE INSERT OR UPDATE OR DELETE ON table
+AFTER INSERT ON employee
 FOR EACH ROW
 EXECUTE PROCEDURE add_employee_trig();
 
@@ -322,7 +322,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER update_album_trigger
-BEFORE INSERT OR UPDATE OR DELETE ON table
+AFTER UPDATE ON album
 FOR EACH ROW
 EXECUTE PROCEDURE update_album_trig();
 
@@ -354,7 +354,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER delete_customer_trigger
-BEFORE INSERT OR UPDATE OR DELETE ON table
+AFTER DELETE ON customer
 FOR EACH ROW
 EXECUTE PROCEDURE delete_customer_trig();
 
